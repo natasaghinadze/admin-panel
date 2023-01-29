@@ -7,7 +7,7 @@ import { Observable, of, throwError } from 'rxjs';
 })
 export class AuthService {
 
-  constructor(private route: Router) { }
+  constructor(private router: Router) { }
 
   setToken(token: string) {
     localStorage.setItem('token', token)
@@ -27,5 +27,9 @@ export class AuthService {
       return of(true)
     }
     return throwError(() => new Error('Failed Login'))
+  }
+
+  loggout() {
+    this.router.navigate(['Login'])
   }
 }
