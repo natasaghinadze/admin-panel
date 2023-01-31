@@ -4,7 +4,7 @@
             <div>
                 <h5>{{user.name}}</h5>
                 <p>{{user.email}}</p>
-                <button class="btn btn-success">Details</button>
+                <button class="btn btn-success" [routerLink]="['user', user.id]">Details</button>
             </div>
         </div>
     </div>
