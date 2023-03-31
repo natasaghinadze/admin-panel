@@ -1,0 +1,26 @@
+{
+    "employees": [
+        {
+            "id": "1",
+            "name": "John Doe",
+            "age": 32,
+            "position": "Software Engineer",
+            "email": "ragaca@gmail.com"
+        },
+        {
+            "id": "2",
+            "name": "Jane Smith",
+            "age": 28,
+            "position": "Data Analyst",
+            "email": "ragaca@gmail.com"
+        },
+        {
+            "id": "3",
+            "name": "Bob Johnson",
+            "age": 45,
+            "position": "Project Manager",
+            "email": "ragaca@gmail.com"
+        }
+    ]
+}
+

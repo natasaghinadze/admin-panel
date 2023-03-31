@@ -10,12 +10,13 @@ import { AdminService } from '../services/admin.service';
 })
 export class ContactsComponent implements OnInit {
 
-  personalList!: Observable<Iuser[]>
+  personalList!:any 
 
   constructor(private adminService: AdminService) { }
 
   ngOnInit(): void {
     this.personalList = this.adminService.getPersonalList()
+    
   }
 
 }

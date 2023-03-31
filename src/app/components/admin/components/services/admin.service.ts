@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Iuser } from '../../user';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +11,18 @@ export class AdminService {
   constructor(private http: HttpClient) { }
 
   getPersonalList() {
-    return this.http.get<Iuser[]>('https://jsonplaceholder.typicode.com/users?_start=0&_limit=5')
+    const subject: Subject<any> = new Subject()
+    this.http.get('assets/data/data.json/').subscribe((res: any) => {
+      subject.next(res.employees)
+    })
+    return subject
   }
 
   getPerson(id: number) {
-    return this.http.get<Iuser>(`https://jsonplaceholder.typicode.com/user/${id}`)
+    const subject: Subject<any> = new Subject()
+    this.http.get<Iuser>(`assets/data/data.json`).subscribe((res: any) =>{
+      subject.next((res.employees as Array<any>).find((element) => element.id === id))
+    })
+    return subject
   }
 }
