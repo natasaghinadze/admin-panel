@@ -5,12 +5,15 @@ import { ContactsDetailComponent } from './components/contacts-detail/contacts-d
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { HomeComponent } from './components/home/home.component';
 import { UserResolver } from './resolvers/user.resolver';
+import { UsersResolver } from './resolvers/users.resolver';
 
 const routes: Routes = [
   {
     path: '', component: AdminDashboardComponent,
     children: [
-      { path: 'contacts', component: ContactsComponent },
+      { path: 'contacts', component: ContactsComponent, resolve:{
+        users: UsersResolver
+      }},
       { path: 'contacts/user/:id', component: ContactsDetailComponent, resolve:{
         user: UserResolver
       }},
